@@ -7,7 +7,7 @@ namespace models {
     height: string;
 }
 
-export interface Breed {
+export interface IBreed {
     weight: {
         imperial: string
         metric: string
@@ -15,6 +15,7 @@ export interface Breed {
     id: string
     name: string
     vcahospitals_url: string
+    vetstreet_url: string
     temperament: string
     origin: string
     description: string

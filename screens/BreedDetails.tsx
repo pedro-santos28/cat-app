@@ -1,13 +1,13 @@
-import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
-import { RootStackParamList } from '../App';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import tw from 'twrnc';
+import React from "react";
+import { View, Text, ScrollView } from "react-native";
+import { RootStackParamList } from "../App";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { SafeAreaView } from "react-native-safe-area-context";
+import tw from "twrnc";
 
-export type Props = NativeStackScreenProps<RootStackParamList, 'Details'>;
+export type Props = NativeStackScreenProps<RootStackParamList, "BreedDetails">;
 
-export default function Details({ route, navigation }: Props) {
+export default function BreedDetails({ route, navigation }: Props) {
   const { cat } = route.params;
 
   return (
