@@ -1,7 +1,7 @@
-import React from "react";
-import { StyleSheet } from "react-native";
-import { Avatar, Button, Layout, Popover, Text } from "@ui-kitten/components";
-import tw from "twrnc";
+import React from 'react';
+import { StyleSheet, Linking } from 'react-native';
+import { Button, Layout, Popover, Text } from '@ui-kitten/components';
+import tw from 'twrnc';
 
 type PopoverComponentProps = {
   title: string;
@@ -30,9 +30,9 @@ export const PopoverComponent = ({
       <Layout style={tw`p-4 flex gap-4`}>
         <Text>{title}</Text>
         <Text>{content}</Text>
-        <a href={url}>
-          <Text>{url}</Text>
-        </a>
+        <Text style={tw`text-blue-500`} onPress={() => Linking.openURL(url)}>
+          {url}
+        </Text>
       </Layout>
     </Popover>
   );
@@ -40,6 +40,6 @@ export const PopoverComponent = ({
 
 const styles = StyleSheet.create({
   backdrop: {
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
 });

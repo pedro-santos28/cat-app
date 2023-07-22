@@ -9,7 +9,6 @@ type CatInfoProps = {
 export default function CatInfo({ cat }: CatInfoProps) {
   return (
     <View style={tw`flex flex-col items-center justify-center w-full`}>
-      {/* <Text>Teste</Text> */}
       {cat?.breeds?.map((breed) => (
         <View
           key={breed.id}

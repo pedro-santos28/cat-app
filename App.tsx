@@ -1,11 +1,12 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Home from "./screens/Home";
-import BreedDetails from "./screens/BreedDetails";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import AdditionalDetails from "./screens/AdditionalDetails";
-import { ApplicationProvider, Layout, Text } from "@ui-kitten/components";
-import * as eva from "@eva-design/eva";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Home from './screens/Home';
+import BreedDetails from './screens/BreedDetails';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import AdditionalDetails from './screens/AdditionalDetails';
+import { ApplicationProvider } from '@ui-kitten/components';
+import * as eva from '@eva-design/eva';
+import RandomCat from './screens/RandomCat';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -13,11 +14,9 @@ export type RootStackParamList = {
     cat: models.ICat;
   };
   AdditionalDetails: {
-    /*  vetStreetUrl: string;
-    vcaHospitalsUrl: string;
-    wikipediaUrl: string; */
     breeds: models.IBreed[] | undefined;
   };
+  RandomCat: undefined;
 };
 
 export default function App() {
@@ -36,12 +35,17 @@ export default function App() {
             <Stack.Screen
               name="BreedDetails"
               component={BreedDetails}
-              options={{ headerShown: false }}
+              options={{ headerTitle: 'Detalhes da raça' }}
             />
             <Stack.Screen
               name="AdditionalDetails"
               component={AdditionalDetails}
-              options={{ headerShown: false }}
+              options={{ headerTitle: 'Detalhes adicionais' }}
+            />
+            <Stack.Screen
+              name="RandomCat"
+              component={RandomCat}
+              options={{ headerTitle: 'Gatinho aleatório' }}
             />
           </Stack.Navigator>
         </NavigationContainer>
