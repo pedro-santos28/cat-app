@@ -15,13 +15,13 @@ export default function AdditionalDetails({ route, navigation }: Props) {
   const { breeds } = route.params;
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={tw`flex gap-4 m-8`}>
       <Text style={tw`text-xl mb-6`}>
         Essa página é destinada a mostrar informações adicionais sobre os
         gatinhos 😻
       </Text>
       {breeds?.map((breed) => (
-        <View key={breed.id} style={tw`flex gap-4`}>
+        <View key={breed.id} style={tw`flex gap-4 m-8`}>
           <PopoverComponent
             title={'Vet Street'}
             content={
