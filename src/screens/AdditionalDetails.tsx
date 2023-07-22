@@ -1,17 +1,17 @@
 import { View, Text } from 'react-native';
 import React from 'react';
-import { RootStackParamList } from '../App';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { PopoverComponent } from '../components/AdditionalDetails/Popover';
 import tw from 'twrnc';
+import { PopoverComponent } from '../components/AdditionalDetails/Popover';
+import { RootStackParamList } from './StackNavigator';
 
 export type Props = NativeStackScreenProps<
   RootStackParamList,
   'AdditionalDetails'
 >;
 
-export default function AdditionalDetails({ route, navigation }: Props) {
+export default function AdditionalDetails({ route }: Props) {
   const { breeds } = route.params;
 
   return (

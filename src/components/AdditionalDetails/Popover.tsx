@@ -13,7 +13,7 @@ export const PopoverComponent = ({
   title,
   content,
   url,
-}: PopoverComponentProps): React.ReactElement => {
+}: PopoverComponentProps) => {
   const [visible, setVisible] = React.useState(false);
 
   const renderToggleButton = (): React.ReactElement => (

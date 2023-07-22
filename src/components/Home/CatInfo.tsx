@@ -8,13 +8,15 @@ type CatInfoProps = {
 
 export default function CatInfo({ cat }: CatInfoProps) {
   return (
-    <View style={tw`flex flex-col items-center justify-center w-full`}>
+    <View style={tw`flex flex-col justify-center w-full`}>
       {cat?.breeds?.map((breed) => (
         <View
           key={breed.id}
-          style={tw`flex-1 gap-2 justify-center items-center`}
+          style={tw`flex-1 gap-2 p-4 justify-center items-center`}
         >
-          <Text>{breed.name ? breed.name : breed.alt_names}</Text>
+          <Text style={tw`w-full p-2 border-2 text-center`}>
+            {breed.name ? breed.name : breed.alt_names}
+          </Text>
           <View style={tw`w-full flex-1 gap-2 justify-center items-center`}>
             <Image
               style={tw`w-[200px] h-[200px] p-4 rounded-lg`}
