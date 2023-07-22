@@ -21,11 +21,11 @@ export default function RandomCat() {
   };
 
   return (
-    <View style={tw`flex-1 justify-center items-center`}>
+    <View style={tw`flex-1 justify-center items-center m-2`}>
       {isLoading ? (
         <Loading />
       ) : (
-        <View style={tw`w-full h-full`}>
+        <View>
           <Image
             style={tw`w-[350px] h-[350px] p-4 rounded-lg border-4 border-blue-500 rounded-xl`}
             source={{

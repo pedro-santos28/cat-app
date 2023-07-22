@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, Image } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import tw from 'twrnc';
@@ -14,8 +14,14 @@ export default function BreedDetails({ route }: Props) {
   return (
     <SafeAreaView style={tw`flex-1 bg-white`}>
       <ScrollView contentContainerStyle={tw`p-2`}>
-        {cat.breeds?.map((breed) => (
+        {cat.breeds?.map((breed: models.IBreed) => (
           <View key={breed.id} style={tw`p-2`}>
+            <Image
+              style={tw`w-[200px] h-[200px] border-black border-1 rounded-xl`}
+              source={{
+                uri: cat.url,
+              }}
+            />
             <SingleBreedDetail label={'Nome'} value={breed.name} />
             <SingleBreedDetail
               label={'Nome(s) alternativo(s)'}

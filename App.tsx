@@ -4,19 +4,22 @@ import * as eva from '@eva-design/eva';
 import StackNavigator from './src/screens/StackNavigator';
 import { SWRConfig } from 'swr';
 import { fetcher } from './src/api/api';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
   return (
     <SafeAreaProvider>
-      <SWRConfig
-        value={{
-          fetcher: fetcher,
-        }}
-      >
-        <ApplicationProvider {...eva} theme={eva.dark} mapping={eva.mapping}>
-          <StackNavigator />
-        </ApplicationProvider>
-      </SWRConfig>
+      <ApplicationProvider {...eva} theme={eva.dark} mapping={eva.mapping}>
+        <SWRConfig
+          value={{
+            fetcher,
+          }}
+        >
+          <NavigationContainer>
+            <StackNavigator />
+          </NavigationContainer>
+        </SWRConfig>
+      </ApplicationProvider>
     </SafeAreaProvider>
   );
 }
