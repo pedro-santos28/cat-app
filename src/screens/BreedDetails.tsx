@@ -16,12 +16,15 @@ export default function BreedDetails({ route }: Props) {
       <ScrollView contentContainerStyle={tw`p-2`}>
         {cat.breeds?.map((breed: models.IBreed) => (
           <View key={breed.id} style={tw`p-2`}>
-            <Image
-              style={tw`w-[200px] h-[200px] border-black border-1 rounded-xl`}
-              source={{
-                uri: cat.url,
-              }}
-            />
+            <View style={tw`flex-1 items-center`}>
+              <Image
+                style={tw`w-[200px] h-[200px] border-2 border-blue-500 rounded-full`}
+                source={{
+                  uri: cat.url,
+                }}
+              />
+            </View>
+
             <SingleBreedDetail label={'Nome'} value={breed.name} />
             <SingleBreedDetail
               label={'Nome(s) alternativo(s)'}

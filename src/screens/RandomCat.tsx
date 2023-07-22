@@ -21,25 +21,23 @@ export default function RandomCat() {
   };
 
   return (
-    <View style={tw`flex-1 justify-center items-center m-2`}>
+    <View style={tw`flex-1 justify-center items-center bg-gray-100`}>
       {isLoading ? (
         <Loading />
       ) : (
-        <View>
+        <View style={tw`p-8 bg-white rounded-xl shadow-lg`}>
           <Image
-            style={tw`w-[350px] h-[350px] p-4 rounded-lg border-4 border-blue-500 rounded-xl`}
-            source={{
-              uri: randomCat[0].url,
-            }}
+            style={tw`w-64 h-64 p-4 rounded-xl border-4 border-blue-500`}
+            source={{ uri: randomCat[0].url }}
             resizeMode="contain"
           />
 
           <TouchableOpacity
-            style={tw`p-4 bg-blue-500 rounded-md m-4`}
+            style={tw`mt-4 px-6 py-3 bg-blue-500 rounded-md`}
             onPress={refetchData}
           >
             <Text style={tw`text-center text-white font-bold text-base`}>
-              Gerar nova imagem
+              Obter outra imagem
             </Text>
           </TouchableOpacity>
         </View>

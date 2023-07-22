@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Linking } from 'react-native';
+import { Linking } from 'react-native';
 import { Button, Layout, Popover, Text } from '@ui-kitten/components';
 import tw from 'twrnc';
 
@@ -17,29 +17,32 @@ export const PopoverComponent = ({
   const [visible, setVisible] = React.useState(false);
 
   const renderToggleButton = (): React.ReactElement => (
-    <Button onPress={() => setVisible(true)}>{title}</Button>
+    <Button
+      appearance="ghost"
+      onPress={() => setVisible(true)}
+      style={tw`px-4 py-2 border border-blue-500 rounded`}
+    >
+      <Text style={tw`text-blue-500 font-bold`}>{title}</Text>
+    </Button>
   );
 
   return (
     <Popover
-      backdropStyle={styles.backdrop}
+      backdropStyle={tw`bg-black opacity-50`}
       visible={visible}
       anchor={renderToggleButton}
       onBackdropPress={() => setVisible(false)}
     >
-      <Layout style={tw`p-4 flex gap-4`}>
-        <Text>{title}</Text>
-        <Text>{content}</Text>
-        <Text style={tw`text-blue-500`} onPress={() => Linking.openURL(url)}>
+      <Layout style={tw`p-4 min-w-[240px]`}>
+        <Text style={tw`text-xl font-bold text-blue-500 mb-4`}>{title}</Text>
+        <Text style={tw`text-base mb-4`}>{content}</Text>
+        <Text
+          style={tw`text-blue-500 underline`}
+          onPress={() => Linking.openURL(url)}
+        >
           {url}
         </Text>
       </Layout>
     </Popover>
   );
 };
-
-const styles = StyleSheet.create({
-  backdrop: {
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  },
-});
