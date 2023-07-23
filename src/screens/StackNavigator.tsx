@@ -64,7 +64,7 @@ export default function StackNavigator() {
       <Stack.Screen
         name="RandomCat"
         component={RandomCat}
-        options={{ headerTitle: 'Gatinho aleatório' }}
+        options={{ headerTitle: 'Gatinho aleatório 🐈' }}
       />
     </Stack.Navigator>
   );

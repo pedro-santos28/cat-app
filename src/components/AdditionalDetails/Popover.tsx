@@ -36,12 +36,16 @@ export const PopoverComponent = ({
       <Layout style={tw`p-4 min-w-[240px]`}>
         <Text style={tw`text-xl font-bold text-blue-500 mb-4`}>{title}</Text>
         <Text style={tw`text-base mb-4`}>{content}</Text>
-        <Text
-          style={tw`text-blue-500 underline`}
-          onPress={() => Linking.openURL(url)}
-        >
-          {url}
-        </Text>
+        {url ? (
+          <Text
+            style={tw`text-blue-500 underline`}
+            onPress={() => Linking.openURL(url)}
+          >
+            {url}
+          </Text>
+        ) : (
+          <Text>Url não encontrada 😿</Text>
+        )}
       </Layout>
     </Popover>
   );
