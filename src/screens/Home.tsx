@@ -5,8 +5,6 @@ import { fetcher } from '../api/api';
 import tw from 'twrnc';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { LIMIT } from '@env';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faCat } from '@fortawesome/free-solid-svg-icons/';
 import Loading from '../components/General/Loading';
 import { RootStackParamList } from './StackNavigator';
 import CatInfo from '../components/Home/CatInfo';
@@ -38,22 +36,10 @@ export default function Home({ navigation: { navigate } }: Props) {
   }, [data]);
 
   return (
-    <SafeAreaView style={tw`flex justify-center`}>
-      <View style={tw`flex flex-row items-center justify-evenly`}>
-        <Text style={tw`text-center font-bold text-4xl text-blue-500`}>
-          CAT APP
-        </Text>
-        <TouchableOpacity onPress={() => navigate('RandomCat')}>
-          <FontAwesomeIcon icon={faCat} size={30} />
-        </TouchableOpacity>
-      </View>
+    <SafeAreaView style={tw`flex justify-start`}>
       <FlatList
         data={catsData}
-        renderItem={({ item }) => (
-          <View>
-            <CatInfo cat={item} />
-          </View>
-        )}
+        renderItem={({ item }) => <CatInfo cat={item} />}
         keyExtractor={(item) => item.id}
         ListEmptyComponent={<Loading />}
       />
